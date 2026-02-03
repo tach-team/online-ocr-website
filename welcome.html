@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Online OCR</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="container">
+        <header class="header">
+            <h1 class="title">
+                <span class="emoji">🎉</span> Online OCR Installed
+            </h1>
+        </header>
+
+        <section class="instruction">
+            <p class="instruction-text">
+                Click the puzzle piece (1) in the top right of your browser.<br>
+                Then, click the little pin (2) next to the extension:
+            </p>
+            <div class="screenshot">
+                <img src="img/screen-1.png" alt="Step 1 and 2: Pin the extension">
+            </div>
+        </section>
+
+        <section class="instruction">
+            <p class="instruction-text">
+                Open the extension (3) on any page to start using Online OCR:
+            </p>
+            <div class="screenshot">
+                <img src="img/screen-2.png" alt="Step 3: Open the extension">
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <script>
+      window.addEventListener('load', function () {
+        if (typeof confetti !== 'function') return;
+        var origin = { x: 0.5, y: 0.58 };
+        var img = document.querySelector('.screenshot img');
+        if (img) {
+          var rect = img.getBoundingClientRect();
+          if (rect.height > 0) {
+            origin.x = (rect.left + rect.width / 2) / window.innerWidth;
+            origin.y = (rect.top + rect.height * 0.88) / window.innerHeight;
+          }
+        }
+        confetti({
+          origin: origin,
+          particleCount: 280,
+          spread: 120,
+          startVelocity: 52
+        });
+      });
+    </script>
+</body>
+</html>
